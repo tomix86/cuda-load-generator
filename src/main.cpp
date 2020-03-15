@@ -70,10 +70,6 @@ int main(int argc, char* argv[]) {
 	const auto allocStepSize = std::atoi(argv[2]);
 	const auto duration = seconds{ std::atoi(argv[3]) };
 	
-	//TODO: implement opening a listen port to make the process important
-	//TODO: implement gradual memory de-allocation
-	//TODO: consider implementing gpu load generator - http://www.luxmark.info/
-
 	const auto steps = totalAllocSize / allocStepSize;
 	std::cout << "Allocating " << totalAllocSize << " MB of global device memory over " << duration.count() << " seconds (" << steps << " steps)...\n";
 
@@ -90,12 +86,11 @@ int main(int argc, char* argv[]) {
 
 	std::cout << "Waiting for CTRL-C...\n";
 	while (true) {
-		// touch memory periodically
+		//TODO: touch memory periodically
 		std::this_thread::sleep_for(1s);
 	}
 
-	// copy back the results to simulate that they're being used
-
+	//TODO: copy back the results to simulate that they're being used
 
 	return 0;
 }
